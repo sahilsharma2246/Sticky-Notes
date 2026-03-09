@@ -141,7 +141,6 @@ document.getElementById("box").appendChild(block)
 
 
 
-
 function deleteNote(id,btn){
 
 firebase.database().ref("notes/"+id).remove()
@@ -149,7 +148,6 @@ firebase.database().ref("notes/"+id).remove()
 btn.closest(".sticky").remove()
 
 }
-
 
 
 
