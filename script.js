@@ -1,25 +1,25 @@
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig)
 
-const db = firebase.database().ref("notes");
+const db = firebase.database().ref("notes")
 
-
-
-let currentUser = localStorage.getItem("stickyUser")
-
-if(!currentUser){
-currentUser = prompt("Enter your name:")
-localStorage.setItem("stickyUser", currentUser)
-}
-
-
+let currentUser = localStorage.getItem("stickyUser") || ""
 
 let isBold = false
 let isItalic = false
 
-
-
-
 function create(){
+
+if(!currentUser){
+
+let name = prompt("Enter your name:")
+
+if(!name || name.trim() === "") return
+
+currentUser = name.trim()
+
+localStorage.setItem("stickyUser", currentUser)
+
+}
 
 let block = document.createElement("div")
 block.className = "sticky"
@@ -45,10 +45,6 @@ document.getElementById("box").appendChild(block)
 
 }
 
-
-
-
-
 function save(btn){
 
 let textarea = btn.parentNode.querySelector("textarea")
@@ -72,10 +68,6 @@ isItalic = false
 
 }
 
-
-
-
-
 function format(btn,type){
 
 let block = btn.closest(".sticky")
@@ -94,10 +86,6 @@ textarea.style.fontStyle = isItalic ? "italic" : "normal"
 }
 
 }
-
-
-
-
 
 db.on("child_added", function(snapshot){
 
@@ -137,10 +125,6 @@ document.getElementById("box").appendChild(block)
 
 })
 
-
-
-
-
 function deleteNote(id,btn){
 
 firebase.database().ref("notes/"+id).remove()
@@ -149,12 +133,12 @@ btn.closest(".sticky").remove()
 
 }
 
-
-
-
 function changeUser(){
 
 localStorage.removeItem("stickyUser")
+
+currentUser = ""
+
 location.reload()
 
 }
