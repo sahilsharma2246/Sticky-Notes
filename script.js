@@ -1,4 +1,4 @@
-firebase.initializeApp(firebaseConfig)
+firebase.initializeApp(Config)
 
 const db = firebase.database().ref("notes")
 
