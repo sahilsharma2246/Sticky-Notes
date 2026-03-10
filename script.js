@@ -10,6 +10,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database().ref("notes");
+
 let currentUser = localStorage.getItem("stickyUser") || "";
 let isBold = false;
 let isItalic = false;
