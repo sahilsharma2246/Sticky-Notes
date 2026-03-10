@@ -1,3 +1,15 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyAC42sirek7m-9wnh-7FsX2ow25KFRTjVA",
+  authDomain: "react-36e2c.firebaseapp.com",
+  databaseURL: "https://react-36e2c-default-rtdb.firebaseio.com",
+  projectId: "react-36e2c",
+  storageBucket: "react-36e2c.firebasestorage.app",
+  messagingSenderId: "995727795506",
+  appId: "1:995727795506:web:420373ff0c0057b7a9a32b"
+};
+
+
+
 firebase.initializeApp(firebaseConfig)
 
 const db = firebase.database().ref("notes")
